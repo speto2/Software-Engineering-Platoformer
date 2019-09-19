@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public float jumpSpeed = 5f;
 
     public bool alive = true;
-    public bool onGround = true;
+    public bool onGround = false;
 
     public Transform groundedChecker;
     public float checkGroundR;
@@ -24,8 +24,6 @@ public class Player : MonoBehaviour {
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
 
-        checkForGround();
-
         if (onGround) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
@@ -33,13 +31,24 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void checkForGround() {
-        Collider2D collider = Physics2D.OverlapCircle(groundedChecker.position, checkGroundR, layer_ground);
-        if (groundedChecker != null) {
+    void OnCollisionStay2D(Collision2D collider) {
+        CheckIfGrounded();
+    }
+
+    void OnCollisionExit2D(Collision2D collider) {
+        onGround = false;
+    }
+
+    private void CheckIfGrounded() {
+        RaycastHit2D[] hits;
+
+        //We raycast down 1 pixel from this position to check for a collider
+        Vector2 positionToCheck = transform.position;
+        hits = Physics2D.RaycastAll(positionToCheck, new Vector2(0, -1), 0.01f);
+
+        //if a collider was hit, we are grounded
+        if (hits.Length > 0) {
             onGround = true;
-        }
-        else {
-            onGround = false;
         }
     }
 }
