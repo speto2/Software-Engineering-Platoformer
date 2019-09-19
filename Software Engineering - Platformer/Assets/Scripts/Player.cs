@@ -9,10 +9,6 @@ public class Player : MonoBehaviour {
     public bool alive = true;
     public bool onGround = false;
 
-    public Transform groundedChecker;
-    public float checkGroundR;
-    public LayerMask layer_ground;
-
     Rigidbody2D rb;
 
     void Start() {
@@ -41,12 +37,10 @@ public class Player : MonoBehaviour {
 
     private void CheckIfGrounded() {
         RaycastHit2D[] hits;
-
-        //We raycast down 1 pixel from this position to check for a collider
+        
         Vector2 positionToCheck = transform.position;
         hits = Physics2D.RaycastAll(positionToCheck, new Vector2(0, -1), 0.01f);
-
-        //if a collider was hit, we are grounded
+        
         if (hits.Length > 0) {
             onGround = true;
         }
