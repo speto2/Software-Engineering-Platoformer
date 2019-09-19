@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
         rb.velocity = new Vector2(move, rb.velocity.y);
 
         if (onGround) {
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
         }
