@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     public bool alive = true;
     public bool onGround = false;
 
+    public int jumped = 0;
+
     Rigidbody2D rb;
 
     public Transform playerTransform;
@@ -23,9 +25,13 @@ public class Player : MonoBehaviour {
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
 
-        if (onGround) {
+        if (onGround || jumped <= 2) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+                jumped++;
+            }
+            if (jumped == 2) {
+                jumped = 0;
             }
         }
 
