@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    public Transform playerTransform;
+    public GameObject player;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -24,6 +27,20 @@ public class Player : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)) {
+            player.transform.localPosition = new Vector2(0, 0); //will need to update to the level start position later
+        }
+
+        if (player.transform.position.y < -10) {
+            player.transform.localPosition = new Vector2(0, 0);
+        }
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit col) {
+        if (col.collider.gameObject.tag == "deathBox") {
+            transform.position = new Vector2(0, 0); //will need to update to the level start position later
         }
     }
 
