@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour {
-    public Transform player;
-    public Vector3 offset;
+    public GameObject player;        
+    private Vector3 offset;
 
     void Start() {
-        Debug.Log("!Camera Follow!");
+        offset = transform.position - player.transform.position;
     }
 
-    void Update() {
-        transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+    void LateUpdate() {
+        transform.position = player.transform.position + offset;
     }
 }
