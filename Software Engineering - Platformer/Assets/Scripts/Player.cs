@@ -37,17 +37,17 @@ public class Player : MonoBehaviour {
         }
 
         if(Input.GetKeyDown(KeyCode.R)) {
-            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); //will need to update to the level start position later
+            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
 
         if (player.transform.position.y < -10) {
-            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); //alsol level start position
+            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
     }
 
     void OnControllerColliderHit(ControllerColliderHit col) {
         if (col.collider.gameObject.tag == "deathBox") {
-            transform.position = new Vector2(startPos.transform.position.x, startPos.transform.position.y); //will need to update to the level start position later
+            transform.position = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
     }
 
