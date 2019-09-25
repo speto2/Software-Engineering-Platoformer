@@ -32,10 +32,6 @@ public class Player : MonoBehaviour {
                 jumped++;
             }
         }
-        if (jumped == -1 && onGround)
-        {
-            jumped = 0;
-        }
         if (Input.GetKeyDown(KeyCode.R)) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
