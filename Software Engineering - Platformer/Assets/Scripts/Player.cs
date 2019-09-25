@@ -31,12 +31,12 @@ public class Player : MonoBehaviour {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 jumped++;
             }
-            if (jumped >= 2 && onGround) {
-                jumped = 0;
-            }
         }
-
-        if(Input.GetKeyDown(KeyCode.R)) {
+        if (jumped == 2 && onGround)
+        {
+            jumped = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.R)) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
 
