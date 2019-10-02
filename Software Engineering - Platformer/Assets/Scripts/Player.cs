@@ -26,17 +26,13 @@ public class Player : MonoBehaviour {
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
 
-        if (onGround || jumped <= 2) {
+        if (onGround) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 jumped++;
             }
-            if (jumped == 2 && onGround) {
-                jumped = 0;
-            }
         }
-
-        if(Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
 
