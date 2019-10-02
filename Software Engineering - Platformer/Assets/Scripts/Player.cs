@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     
@@ -23,6 +24,13 @@ public class Player : MonoBehaviour {
     public GameObject player;
     public GameObject startPos;
     public Transform planet;
+
+    public string loadLvl;
+    public int lvl = 1;
+
+    public Collider2D objectCollider;
+    public Collider2D anotherCollider;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -53,30 +61,28 @@ public class Player : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.R)) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
-        else { }
 
         if (player.transform.position.y < -10) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
+
         distance = Vector2.Distance(planet.transform.position, player.transform.position);
-        if (distance > radius)
-        {
+        if (distance > radius) {
             nearPlanet = false;
 
         }
-        if (radius >= distance)
-        {
+
+        if (radius >= distance) {
             nearPlanet = true;
         }
-    }
 
-    void OnControllerColliderHit(ControllerColliderHit col) {
-        if (col.collider.gameObject.tag == "deathBox") {
-            transform.position = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
-        }
-       
-        if(col.collider.gameObject.tag == "portal") {
-            
+        if (objectCollider.IsTouching(anotherCollider)) {
+            Debug.Log("test 1");
+            lvl++;
+            if (lvl == 2) {
+                loadLvl = "GravityTest";
+            }
+            SceneManager.LoadScene(loadLvl);
         }
     }
 
