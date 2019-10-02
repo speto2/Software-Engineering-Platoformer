@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
             if (lvl == 2) {
                 loadLvl = "GravityTest";
             }
-            SceneManager.LoadScene(loadLvl);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
         }
     }
 
