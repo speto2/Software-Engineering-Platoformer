@@ -49,6 +49,10 @@ public class Player : MonoBehaviour {
         if (col.collider.gameObject.tag == "deathBox") {
             transform.position = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
+       
+        if(col.collider.gameObject.tag == "portal") {
+            
+        }
     }
 
     void OnCollisionStay2D(Collision2D collider) {

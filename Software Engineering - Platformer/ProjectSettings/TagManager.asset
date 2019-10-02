@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - deathBox
+  - portal
   layers:
   - Default
   - TransparentFX
