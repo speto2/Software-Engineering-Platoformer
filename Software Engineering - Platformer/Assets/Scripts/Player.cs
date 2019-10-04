@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
     public bool alive = true;
     public bool onGround = false;
-    public bool nearPlanet = false;
+    public bool onPlanet = false;
     public bool touchingPlanet = false;
 
     public int jumped = 0;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        Physics.gravity = new Vector3(1f, -9.81f, 0f);
+        Physics.gravity = new Vector3(0f, -9.81f, 0f);
         float movex = Input.GetAxisRaw("Horizontal");
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
                 jumped++;
             }
         }
-        if (nearPlanet)
+        if (onPlanet)
         {
             FollowTarget(planet, distance, gravity);
         }
@@ -68,12 +68,12 @@ public class Player : MonoBehaviour {
 
         distance = Vector2.Distance(planet.transform.position, player.transform.position);
         if (distance > radius) {
-            nearPlanet = false;
+            onPlanet = false;
 
         }
 
         if (radius >= distance) {
-            nearPlanet = true;
+            onPlanet = true;
         }
 
         if (objectCollider.IsTouching(anotherCollider)) {
@@ -121,11 +121,7 @@ public class Player : MonoBehaviour {
         
         if (hits.Length > 0) {
             onGround = true;
-            if (nearPlanet)
-            {
-                touchingPlanet = true;
-            }
-            else { touchingPlanet = false; }
+            touchingPlanet = onPlanet;
         }
     }
 
