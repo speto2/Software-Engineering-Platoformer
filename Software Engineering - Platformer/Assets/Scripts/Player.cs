@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
 
     public Collider2D objectCollider;
     public Collider2D anotherCollider;
+    public Collider2D enemyCollider;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -83,6 +84,13 @@ public class Player : MonoBehaviour {
                 loadLvl = "GravityTest";
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "enemy") {
+            Debug.Log("player death");
+            Destroy(this);
         }
     }
 
