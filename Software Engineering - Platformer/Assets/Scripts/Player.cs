@@ -32,8 +32,6 @@ public class Player : MonoBehaviour {
     public Collider2D anotherCollider;
     public Collider2D enemyCollider;
 
-    public GameObject platformBorders;
-
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -90,10 +88,6 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "enemy") { //death when touching enemy object
             Debug.Log("player death");
             Destroy(this);
-        }
-
-        if (collision.gameObject.tag == "theobjectToIgnore") { //ignore platofrm enemy borders
-            Physics.IgnoreCollision(GetComponent<Collider2D>().platformBorders, objectCollider);
         }
     }
 
