@@ -6,8 +6,6 @@ public class Red_Bird : MonoBehaviour {
     public float moveSpeed = 5f;
     public int hp = 1;
 
-    
-
 	void Start () {
 		
 	}

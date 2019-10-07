@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
     public Collider2D anotherCollider;
     public Collider2D enemyCollider;
 
+    public GameObject platformBorders;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -49,28 +51,25 @@ public class Player : MonoBehaviour {
             }
         }
         if (touchingPlanet && onGround){
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
-            {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 AwayTarget(planet, distance, gravity);
                 jumped++;
             }
         }
-        if (nearPlanet)
-        {
+        if (nearPlanet) {
             FollowTarget(planet, distance, gravity);
         }
-            if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
         }
 
-        if (player.transform.position.y < -10) {
+        if (player.transform.position.y < -10) { //fall death
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
 
         distance = Vector2.Distance(planet.transform.position, player.transform.position);
         if (distance > radius) {
             nearPlanet = false;
-
         }
 
         if (radius >= distance) {
@@ -88,9 +87,13 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "enemy") {
+        if (collision.gameObject.tag == "enemy") { //death when touching enemy object
             Debug.Log("player death");
             Destroy(this);
+        }
+
+        if (collision.gameObject.tag == "theobjectToIgnore") { //ignore platofrm enemy borders
+            Physics.IgnoreCollision(GetComponent<Collider2D>().platformBorders, objectCollider);
         }
     }
 
@@ -102,8 +105,7 @@ public class Player : MonoBehaviour {
         onGround = false;
     }
 
-    void FollowTarget(Transform target, float distanceToStop, float speed)
-    {
+    void FollowTarget(Transform target, float distanceToStop, float speed) {
         var direction = Vector3.zero;
         if (Vector3.Distance(transform.position, target.position) > distanceToStop)
         {
@@ -111,8 +113,7 @@ public class Player : MonoBehaviour {
             rb.AddRelativeForce(direction.normalized * speed, ForceMode2D.Force);
         }
     }
-    void AwayTarget(Transform target, float distanceToStop, float speed)
-    {
+    void AwayTarget(Transform target, float distanceToStop, float speed) {
         var direction = Vector3.zero;
         if (Vector3.Distance(transform.position, target.position) > distanceToStop)
         {
@@ -136,6 +137,4 @@ public class Player : MonoBehaviour {
             else { touchingPlanet = false; }
         }
     }
-
-
 }
