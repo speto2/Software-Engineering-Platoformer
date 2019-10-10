@@ -8,26 +8,29 @@ public class Red_Bird : MonoBehaviour {
 
     public bool facingRight = false;
 
-
     void Start () {
 
     }
 	
 	void Update () {
-		if(hp >= 0) { //death
+		if(hp <= 0) { //death
             Destroy(this);
         }
-        transform.Translate(0, 0, Time.deltaTime);
+
+        if(facingRight) {
+            transform.Translate(Time.deltaTime, 0, 0);
+        }else {
+            transform.Translate(-Time.deltaTime, 0, 0);
+        }
 	}
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "wall") { //death when touching enemy object
-            Debug.Log("Flip");
+        if (collision.gameObject.tag == "wall") { //turn around when hitting the wall
             Flip();
         }
     }
 
-    private void Flip() {
+    private void Flip() { //method to flip sprites x around
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = true;
     }
