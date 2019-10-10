@@ -15,18 +15,19 @@ public class Player : MonoBehaviour {
     public bool onGround = false;
     public bool nearPlanet = false;
     public bool touchingPlanet = false;
-
-    public int jumped = 0;
-
+    
     Rigidbody2D rb;
 
     public Transform playerTransform;
+    public Transform planet;
+
+    public GameObject bulletPrefab;
     public GameObject player;
     public GameObject startPos;
-    public Transform planet;
 
     public string loadLvl;
     public int lvl = 1;
+    public int jumped = 0;
 
     public Collider2D objectCollider;
     public Collider2D anotherCollider;
@@ -82,6 +83,15 @@ public class Player : MonoBehaviour {
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
         }
+
+        if(Input.GetKeyDown("f")) {
+            fire();
+        }
+    }
+
+    void fire() {
+        Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z);
+        Instantiate(bulletPrefab, position, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
