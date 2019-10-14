@@ -291,48 +291,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd9dd0acad117040b9e0119bb39b7bb, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &674102677
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.86804
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.5791502
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.031091936
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368504109830986, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: af010a0fa9ea3054a87635bcf20b13b4, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!4 &853684802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4443699001848384, guid: 9fd9dd0acad117040b9e0119bb39b7bb,
@@ -455,8 +413,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1262497023763520, guid: 35fe644775fd8fb4290cea7eb87ec836,
-        type: 2}
+      objectReference: {fileID: 1490248087}
     - target: {fileID: 114539516683493260, guid: 35fe644775fd8fb4290cea7eb87ec836,
         type: 2}
       propertyPath: playerTransform

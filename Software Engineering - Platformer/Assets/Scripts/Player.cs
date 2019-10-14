@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreCollision(bulletPrefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Update() {
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour {
         }
 
         if(Input.GetKeyDown("f")) { //to fire the shot
+            Debug.Log("Fire");
             fire();
         }
 
@@ -98,8 +100,8 @@ public class Player : MonoBehaviour {
     }
 
     void fire() { //fire a shot
-        Vector2 position = new Vector2(player.transform.position.x, player.transform.position.y);
-        Instantiate(bulletPrefab, position, Quaternion.identity);
+        Vector3 spawnPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
