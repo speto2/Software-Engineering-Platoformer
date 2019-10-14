@@ -37,10 +37,10 @@ public class Player : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreCollision(bulletPrefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Update() {
+        Physics2D.IgnoreCollision(bulletPrefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         Physics.gravity = new Vector3(1f, -9.81f, 0f);
         float movex = Input.GetAxisRaw("Horizontal");
         float move = movex * pSpeed;
