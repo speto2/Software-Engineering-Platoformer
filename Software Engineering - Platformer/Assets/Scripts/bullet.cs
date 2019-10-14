@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bullet : MonoBehaviour {
-    public float shootForce = 5f;
-
     public GameObject theBullet;
+    public string lk;
 
-	void Start () {
-		
-	}
+    void Start () {
+        
+    }
 	
 	void Update () {
-        Debug.Log("test1");
+        transform.Translate(-Time.deltaTime, 0, 0);
+        Object.Destroy(gameObject, 10f); //deleted after being around for so long
     }   
 }

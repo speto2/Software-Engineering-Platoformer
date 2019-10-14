@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
     public GameObject startPos;
 
     public string loadLvl;
+    public static string lastkey;
+
     public int lvl = 1;
     public int jumped = 0;
 
@@ -75,7 +77,7 @@ public class Player : MonoBehaviour {
             nearPlanet = true;
         }
 
-        if (objectCollider.IsTouching(anotherCollider)) {
+        if (objectCollider.IsTouching(anotherCollider)) { //load next level(not working)
             Debug.Log("test 1");
             lvl++;
             if (lvl == 2) {
@@ -84,13 +86,19 @@ public class Player : MonoBehaviour {
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
         }
 
-        if(Input.GetKeyDown("f")) {
+        if(Input.GetKeyDown("f")) { //to fire the shot
             fire();
+        }
+
+        if (Input.GetKeyDown("right")) {
+            lastkey = "r";
+        }else {
+            lastkey = "l";
         }
     }
 
-    void fire() {
-        Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z);
+    void fire() { //fire a shot
+        Vector2 position = new Vector2(player.transform.position.x, player.transform.position.y);
         Instantiate(bulletPrefab, position, Quaternion.identity);
     }
 

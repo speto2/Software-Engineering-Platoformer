@@ -108,19 +108,19 @@ MonoBehaviour:
   onGround: 0
   nearPlanet: 0
   touchingPlanet: 0
-  jumped: 0
   playerTransform: {fileID: 4540230261198540}
+  planet: {fileID: 4718281222424192, guid: 67dbd78fa4fd87d49aa066c17521b484, type: 2}
+  bulletPrefab: {fileID: 1841454122808524, guid: af010a0fa9ea3054a87635bcf20b13b4,
+    type: 2}
   player: {fileID: 1262497023763520}
   startPos: {fileID: 1564471900830888, guid: c40ed1b15b14ef949a33771cf8f06cf3, type: 2}
-  planet: {fileID: 4718281222424192, guid: 67dbd78fa4fd87d49aa066c17521b484, type: 2}
   loadLvl: 
   lvl: 1
+  jumped: 0
   objectCollider: {fileID: 61477909641417698}
   anotherCollider: {fileID: 61448080380750388, guid: d7f1cccb67813d641971eef5edb90795,
     type: 2}
   enemyCollider: {fileID: 61154073811181218, guid: 91264ae05e015734a82d22baad24b318,
-    type: 2}
-  platformBorders: {fileID: 1707341091512960, guid: 7c74dbdaddef93e4193951bf7bff77b6,
     type: 2}
 --- !u!212 &212341529126063996
 SpriteRenderer:
