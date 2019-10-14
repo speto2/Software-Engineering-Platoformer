@@ -468,6 +468,12 @@ Prefab:
       propertyPath: lvl
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114539516683493260, guid: 35fe644775fd8fb4290cea7eb87ec836,
+        type: 2}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1841454122808524, guid: af010a0fa9ea3054a87635bcf20b13b4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35fe644775fd8fb4290cea7eb87ec836, type: 2}
   m_IsPrefabAsset: 0
