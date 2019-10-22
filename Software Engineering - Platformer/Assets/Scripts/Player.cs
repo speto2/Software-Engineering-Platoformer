@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
     public GameObject startPos;
 
     public string loadLvl;
-    public static string lastkey;
+    public static string lastkey = "l";
 
     public int lvl = 1;
     public int jumped = 0;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour {
     public Collider2D objectCollider;
     public Collider2D anotherCollider;
     public Collider2D enemyCollider;
-
+  
     void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -92,16 +92,23 @@ public class Player : MonoBehaviour {
             fire();
         }
 
-        if (Input.GetKeyDown("right")) {
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
             lastkey = "r";
-        }else {
+            Debug.Log("r");
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
             lastkey = "l";
+            Debug.Log("L");
         }
     }
 
     void fire() { //fire a shot
-        Vector3 spawnPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-        Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        if(lastkey == "l") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x-1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }else if(lastkey == "r") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x+1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
