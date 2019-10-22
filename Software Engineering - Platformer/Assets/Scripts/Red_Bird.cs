@@ -24,13 +24,17 @@ public class Red_Bird : MonoBehaviour {
         }
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "bullet") { //death when getting hit by bullet
+            Debug.Log("test1");
+            Destroy(this);
+        }
         if (collision.gameObject.tag == "wall") { //turn around when hitting the wall
             Flip();
         }
     }
 
-    private void Flip() { //method to flip sprites x around
+    public void Flip() { //method to flip sprites x around
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = true;
     }

@@ -88,16 +88,13 @@ public class Player : MonoBehaviour {
         }
 
         if(Input.GetKeyDown("f")) { //to fire the shot
-            Debug.Log("Fire");
             fire();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
             lastkey = "r";
-            Debug.Log("r");
         }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
             lastkey = "l";
-            Debug.Log("L");
         }
     }
 
