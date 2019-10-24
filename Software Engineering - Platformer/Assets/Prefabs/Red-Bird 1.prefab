@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   hp: 1
+  theEnemy: {fileID: 1991216868615024}
+  facingRight: 0
 --- !u!212 &212323566739487746
 SpriteRenderer:
   m_ObjectHideFlags: 1
