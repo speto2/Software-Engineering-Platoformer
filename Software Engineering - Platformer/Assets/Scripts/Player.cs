@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     public Transform playerTransform;
     public GameObject player;
     public GameObject startPos;
+    public GameObject bulletPrefab;
     public Transform planet;
 
     public string loadLvl;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour {
 
     public Collider2D objectCollider;
     public Collider2D anotherCollider;
+
+    public static string lastkey;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
