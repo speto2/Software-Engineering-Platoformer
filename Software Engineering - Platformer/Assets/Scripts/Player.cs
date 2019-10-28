@@ -84,6 +84,36 @@ public class Player : MonoBehaviour {
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
         }
+<<<<<<< HEAD
+=======
+
+        if(Input.GetKeyDown("f")) { //to fire the shot
+            fire();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            lastkey = "r";
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
+            lastkey = "l";
+        }
+    }
+
+    void fire() { //fire a shot
+        if(lastkey == "l") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x-1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }else if(lastkey == "r") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x+1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "enemy") { //death when touching enemy object
+            Debug.Log("player death");
+            Destroy(this);
+        }
+>>>>>>> parent of c374afa... Destroy Fixes
     }
 
     void OnCollisionStay2D(Collision2D collider) {
