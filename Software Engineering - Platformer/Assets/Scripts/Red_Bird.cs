@@ -6,27 +6,17 @@ public class Red_Bird : MonoBehaviour {
     public float moveSpeed = 5f;
     public int hp = 1;
 
-<<<<<<< HEAD
-    
-
-	void Start () {
-		
-	}
-=======
     public bool facingRight = false;
 
     void Start () {
 
     }
->>>>>>> parent of c374afa... Destroy Fixes
 	
 	void Update () {
 		if(hp >= 0) { //death
             Destroy(this);
         }
 	}
-<<<<<<< HEAD
-=======
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "bullet") { //death when getting hit by bullet
@@ -42,5 +32,4 @@ public class Red_Bird : MonoBehaviour {
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = true;
     }
->>>>>>> parent of c374afa... Destroy Fixes
 }

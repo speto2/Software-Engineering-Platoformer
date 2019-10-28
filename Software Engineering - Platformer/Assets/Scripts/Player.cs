@@ -84,8 +84,6 @@ public class Player : MonoBehaviour {
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
         }
-<<<<<<< HEAD
-=======
 
         if(Input.GetKeyDown("f")) { //to fire the shot
             fire();
@@ -113,7 +111,6 @@ public class Player : MonoBehaviour {
             Debug.Log("player death");
             Destroy(this);
         }
->>>>>>> parent of c374afa... Destroy Fixes
     }
 
     void OnCollisionStay2D(Collision2D collider) {
