@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     public Transform playerTransform;
     public GameObject player;
     public GameObject startPos;
+    public GameObject bulletPrefab;
     public Transform planet;
 
     public string loadLvl;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour {
 
     public Collider2D objectCollider;
     public Collider2D anotherCollider;
+
+    public static string lastkey;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -83,6 +86,33 @@ public class Player : MonoBehaviour {
                 loadLvl = "GravityTest";
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
+        }
+
+        if(Input.GetKeyDown("f")) { //to fire the shot
+            fire();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            lastkey = "r";
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
+            lastkey = "l";
+        }
+    }
+
+    void fire() { //fire a shot
+        if(lastkey == "l") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x-1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }else if(lastkey == "r") {
+            Vector3 spawnPosition = new Vector3(player.transform.position.x+1, player.transform.position.y, player.transform.position.z);
+            Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "enemy") { //death when touching enemy object
+            Debug.Log("player death");
+            Destroy(this);
         }
     }
 
