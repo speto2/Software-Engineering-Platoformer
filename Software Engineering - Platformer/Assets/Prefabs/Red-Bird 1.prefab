@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d733068d33e1146b9127b59db5c20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  facingRight: 0
+  redBird: {fileID: 1991216868615024}
   hp: 1
 --- !u!212 &212323566739487746
 SpriteRenderer:

@@ -32,6 +32,10 @@ public class Red_Bird : MonoBehaviour {
             Debug.Log("Flip");
             Flip();
         }
+        if (collision.gameObject.tag == "bullet") {
+            Debug.Log("enemy death");
+            Destroy(redBird);
+        }
     }
 
     void Flip() { //method to flip sprites x around

@@ -7,6 +7,8 @@ TagManager:
   - deathBox
   - portal
   - enemy
+  - wall
+  - bullet
   layers:
   - Default
   - TransparentFX
