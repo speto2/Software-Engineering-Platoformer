@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Red_Bird : MonoBehaviour {
+public class  desertEnemy1: MonoBehaviour {
     public bool facingRight = false;
 
-    public GameObject redBird;
+    public GameObject enemy;
 
     public int hp = 1;
 
@@ -16,27 +16,24 @@ public class Red_Bird : MonoBehaviour {
     void Update() {
         if (hp >= 0) { //death
             if (hp <= 0) { //death
-                Destroy(redBird);
+                Destroy(enemy);
             }
         }
         transform.Translate(0, 0, Time.deltaTime);
         if (facingRight) {
             transform.Translate(Time.deltaTime, 0, 0);
-        }else {
+        }
+        else {
             transform.Translate(-Time.deltaTime, 0, 0);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "wall") { //death when touching enemy object
-            Debug.Log("Flip");
-            Flip();
-        }
-        if(collision.gameObject.tag == "enemy") {
+        if (collision.gameObject.tag == "wall" || collision.gameObject.tag == "enemy") { //death when touching enemy object
             Flip();
         }
         if (collision.gameObject.tag == "bullet") {
-            Destroy(redBird);
+            Destroy(enemy);
         }
     }
 
