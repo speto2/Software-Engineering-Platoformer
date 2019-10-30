@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class thebullet : MonoBehaviour {
-    public int moveSpeed = 5;
-    public string lastk;
+    public GameObject theBullet;
+    public string lk;
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-        lastk = Player.lastkey;
+    public int speed = 10;
+
+    void Start() {
+        lk = Player.lastkey;
+    }
+
+    void Update() {
+        transform.Translate(-Time.deltaTime, 0, 0);
+        if (lk == "l") {
+            transform.Translate(-Time.deltaTime * speed, 0, 0);
+        }
+        else if (lk == "r") {
+            transform.Translate(Time.deltaTime * speed, 0, 0);
+        }
+        Object.Destroy(gameObject, 10f); //deleted after being around for so long
     }
 }

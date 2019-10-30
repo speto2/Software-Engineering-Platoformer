@@ -7,14 +7,9 @@ public class Player : MonoBehaviour {
     
     public float pSpeed = 5f;
     public float jumpSpeed = 5f;
-    public float distance;
-    public float radius;
-    public float gravity;
 
     public bool alive = true;
     public bool onGround = false;
-    public bool onPlanet = false;
-    public bool touchingPlanet = false;
 
     public int jumped = 0;
 
@@ -24,7 +19,6 @@ public class Player : MonoBehaviour {
     public GameObject player;
     public GameObject startPos;
     public GameObject bulletPrefab;
-    public Transform planet;
 
     public string loadLvl;
     public int lvl = 1;
@@ -44,39 +38,15 @@ public class Player : MonoBehaviour {
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
 
-        if (onGround && ! touchingPlanet) {
+        if (onGround) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 jumped++;
             }
         }
-        if (touchingPlanet && onGround){
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
-            {
-                AwayTarget(planet, distance, gravity);
-                jumped++;
-            }
-        }
-        if (onPlanet)
-        {
-            FollowTarget(planet, distance, gravity);
-        }
-            if (Input.GetKeyDown(KeyCode.R)) {
-            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y); 
-        }
 
         if (player.transform.position.y < -10) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
-        }
-
-        distance = Vector2.Distance(planet.transform.position, player.transform.position);
-        if (distance > radius) {
-            onPlanet = false;
-
-        }
-
-        if (radius >= distance) {
-            onPlanet = true;
         }
 
         if (objectCollider.IsTouching(anotherCollider)) {
@@ -89,13 +59,24 @@ public class Player : MonoBehaviour {
         }
 
         if(Input.GetKeyDown("f")) { //to fire the shot
+            Debug.Log("fire");
             fire();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
             lastkey = "r";
+            flip();
         }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
             lastkey = "l";
+            flip();
+        }
+    }
+
+    void flip() {
+        if(lastkey == "r") {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }else {
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
@@ -124,25 +105,6 @@ public class Player : MonoBehaviour {
         onGround = false;
     }
 
-    void FollowTarget(Transform target, float distanceToStop, float speed)
-    {
-        var direction = Vector3.zero;
-        if (Vector3.Distance(transform.position, target.position) > distanceToStop)
-        {
-            direction = target.position - transform.position;
-            rb.AddRelativeForce(direction.normalized * speed, ForceMode2D.Force);
-        }
-    }
-    void AwayTarget(Transform target, float distanceToStop, float speed)
-    {
-        var direction = Vector3.zero;
-        if (Vector3.Distance(transform.position, target.position) > distanceToStop)
-        {
-            direction = transform.position - target.position;
-            rb.AddRelativeForce(direction.normalized * speed, ForceMode2D.Force);
-        }
-    }
-
     private void CheckIfGrounded() {
         RaycastHit2D[] hits;
         
@@ -151,7 +113,6 @@ public class Player : MonoBehaviour {
         
         if (hits.Length > 0) {
             onGround = true;
-            touchingPlanet = onPlanet;
         }
     }
 
