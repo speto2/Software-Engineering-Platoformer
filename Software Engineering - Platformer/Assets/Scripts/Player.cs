@@ -23,8 +23,8 @@ public class Player : MonoBehaviour {
     public string loadLvl;
     public int lvl = 1;
 
-    public Collider2D objectCollider;
-    public Collider2D anotherCollider;
+    //public Collider2D objectCollider;
+    //public Collider2D anotherCollider;
 
     public static string lastkey;
 
@@ -49,14 +49,14 @@ public class Player : MonoBehaviour {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
 
-        if (objectCollider.IsTouching(anotherCollider)) {
+        /*if (objectCollider.IsTouching(anotherCollider)) {
             Debug.Log("test 1");
             lvl++;
             if (lvl == 2) {
                 loadLvl = "GravityTest";
             }
             UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
-        }
+        }*/
 
         if(Input.GetKeyDown("f")) { //to fire the shot
             Debug.Log("fire");
