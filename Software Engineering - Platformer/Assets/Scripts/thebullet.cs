@@ -6,7 +6,7 @@ public class thebullet : MonoBehaviour {
     public GameObject theBullet;
     public string lk;
 
-    public int speed = 10;
+    public int speed = 12;
 
     void Start() {
         lk = Player.lastkey;
