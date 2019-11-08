@@ -22,10 +22,8 @@ public class Player : MonoBehaviour {
 
     public string loadLvl;
     public int lvl = 1;
-
-    //public Collider2D objectCollider;
-    //public Collider2D anotherCollider;
-
+    public int fireCoolDown = 1; 
+    
     public static string lastkey;
 
     void Start() {
@@ -48,15 +46,6 @@ public class Player : MonoBehaviour {
         if (player.transform.position.y < -10) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
-
-        /*if (objectCollider.IsTouching(anotherCollider)) {
-            Debug.Log("test 1");
-            lvl++;
-            if (lvl == 2) {
-                loadLvl = "GravityTest";
-            }
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GravityTest");
-        }*/
 
         if(Input.GetKeyDown("f")) { //to fire the shot
             Debug.Log("fire");
@@ -99,6 +88,29 @@ public class Player : MonoBehaviour {
             backgroundFollow.playerHasDied();
             Destroy(player);
         }
+        if(collision.gameObject.tag == "endgate") {
+            lvl++;
+            nextLevel(false); //method that loads next level
+        }
+    }
+    
+    void nextLevel(bool canpass) {
+        if(canpass) {
+            switch(lvl) {
+                case 2:
+                    SceneManager.LoadScene("Level-02");
+                    l("Load level 2");
+                break;
+                case 3:
+                    SceneManager.LoadScene("Level-03");
+                    l("Load level 3");
+                break;
+                case 4:
+                    SceneManager.LoadScene("Level-04");
+                    l("Load level 4");
+                break;
+            }
+        }
     }
 
     void OnCollisionStay2D(Collision2D collider) {
@@ -119,6 +131,8 @@ public class Player : MonoBehaviour {
             onGround = true;
         }
     }
-
-
+    
+    public void l(string log) {
+        Debug.Log(log);
+    }
 }
