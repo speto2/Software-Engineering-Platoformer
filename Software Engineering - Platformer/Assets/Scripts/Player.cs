@@ -22,10 +22,8 @@ public class Player : MonoBehaviour {
 
     public string loadLvl;
     public int lvl = 1;
-
-    //public Collider2D objectCollider;
-    //public Collider2D anotherCollider;
-
+    public int fireCoolDown = 1; 
+    
     public static string lastkey;
 
     void Start() {
