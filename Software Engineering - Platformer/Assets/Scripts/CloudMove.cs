@@ -5,74 +5,54 @@ using UnityEngine;
 public class CloudMove : MonoBehaviour {
     public GameObject bg;
     Rigidbody2D rb;
-
-    public int speed = 5;
-    private float minXValueWorld;
-    private float maxXValueWorld;
+    public Transform cam;
+    public Vector3 cameraRelative;
+    public int moveSpeed = 5;
 
     void Start()
     {
-        minXValueWorld = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
-        maxXValueWorld = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void Move()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-        }
+        float movex = Input.GetAxisRaw("Horizontal");
+        float move = movex * moveSpeed;
+        moveSpeed = Random.Range(1, 20);
+        rb.velocity = new Vector2(-move, 0);
+        offScreenCheck();
     }
 
-    void OffscreenCheck()
+    void offScreenCheck()
     {
-
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        Vector3 maxWorldXWithPlayerSize = Camera.main.WorldToScreenPoint(new Vector3(maxXValueWorld, 0, 0));
-        Vector3 minWorldWithPlayerSize = Camera.main.WorldToScreenPoint(new Vector3(minXValueWorld, 0, 0));
-
-        if (screenPos.x < minWorldWithPlayerSize.x)
+        cam = Camera.main.transform;
+        Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
+        if (cameraRelative.x > 13)
         {
-            this.transform.position = new Vector3(maxWorldXWithPlayerSize.x, this.transform.position.y, this.transform.position.z);
+            transform.localPosition = new Vector2(transform.localPosition.x - 25, transform.localPosition.y);
+           // yAxisChange();
         }
-
-        if (screenPos.x > maxWorldXWithPlayerSize.x)
+        else if (cameraRelative.x < -13)
         {
-            this.transform.position = new Vector3(minWorldWithPlayerSize.x, this.transform.position.y, this.transform.position.z);
+            transform.localPosition = new Vector2(transform.localPosition.x + 25, transform.localPosition.y);
+            //yAxisChange();
         }
-        screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        Vector3 maxWorldWithPlayerSize = new Vector3(maxXValueWorld/ 2, 0, 0);
-        minWorldWithPlayerSize = new Vector3(minXValueWorld/ 2, 0, 0);
-        Vector3 maxScreenWithPlayerSize = Camera.main.WorldToScreenPoint(maxWorldWithPlayerSize);
-        Vector3 minScreenWithPlayerSize = Camera.main.WorldToScreenPoint(minWorldWithPlayerSize);
-
-        if (screenPos.x < minScreenWithPlayerSize.x)
-        {
-            this.transform.position = new Vector3(
-                maxWorldWithPlayerSize.x,
-                this.transform.position.y,
-                this.transform.position.z);
-        }
-
-        if (screenPos.x > maxScreenWithPlayerSize.x)
-        {
-            this.transform.position = new Vector3(
-                minWorldWithPlayerSize.x,
-                this.transform.position.y,
-                this.transform.position.z);
-        }
-
-
-
     }
 
-    void update()
+    /*void yAxisChange()
     {
-        OffscreenCheck();
-
+        cam = Camera.main.transform;
+        Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
+        bool onScrn = false;
+        while (!onScrn)
+        {
+            int y = Random.Range(cameraRelative.y - 6, 6);
+            transform.localPosition = new Vector2(transform.localPosition.x, y);
+            if (cameraRelative.y < 6 && cameraRelative.y > -6)
+            {
+                onScrn = true;
+            }
+        }
     }
+    */
 }
