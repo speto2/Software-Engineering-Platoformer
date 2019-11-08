@@ -19,7 +19,7 @@ public class backgroundFollow : MonoBehaviour {
     }
 	
 	void Update () {
-        rb.velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0);
+        transform.position = new Vector2(player.transform.position.x, 0);
     }
     
     public static void playerHasDied() {
