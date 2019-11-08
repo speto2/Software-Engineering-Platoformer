@@ -16,10 +16,10 @@ public class CloudMove : MonoBehaviour {
 
     void Update()
     {
+        float multiplier = .01f;
         float movex = Input.GetAxisRaw("Horizontal");
-        float move = movex * moveSpeed;
-        moveSpeed = Random.Range(1, 20);
-        rb.velocity = new Vector2(-move, 0);
+        float move = movex * moveSpeed * multiplier;
+        rb.velocity = new Vector2(move, 0);
         offScreenCheck();
     }
 
@@ -30,12 +30,14 @@ public class CloudMove : MonoBehaviour {
         if (cameraRelative.x > 13)
         {
             transform.localPosition = new Vector2(transform.localPosition.x - 25, transform.localPosition.y);
-           // yAxisChange();
+            // yAxisChange();
+            moveSpeed = Random.Range(100, 200);
         }
         else if (cameraRelative.x < -13)
         {
             transform.localPosition = new Vector2(transform.localPosition.x + 25, transform.localPosition.y);
-            //yAxisChange();
+            // yAxisChange();
+            moveSpeed = Random.Range(100, 200);
         }
     }
 
@@ -46,13 +48,13 @@ public class CloudMove : MonoBehaviour {
         bool onScrn = false;
         while (!onScrn)
         {
-            int y = Random.Range(cameraRelative.y - 6, 6);
+            float y = Random.Range(cameraRelative.y - 6, 6);
             transform.localPosition = new Vector2(transform.localPosition.x, y);
             if (cameraRelative.y < 6 && cameraRelative.y > -6)
             {
                 onScrn = true;
             }
         }
-    }
-    */
+    }*/
+    
 }
