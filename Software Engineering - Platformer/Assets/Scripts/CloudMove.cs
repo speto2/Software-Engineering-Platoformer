@@ -18,7 +18,7 @@ public class CloudMove : MonoBehaviour {
     void Update()
     {
         float multiplier = .01f;
-        float movex = Input.GetAxisRaw("Horizontal");
+        float movex = -1;
         float move = movex * moveSpeed * multiplier;
         rb.velocity = new Vector2(move, 0);
         offScreenCheck();
