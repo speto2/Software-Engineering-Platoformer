@@ -7,11 +7,12 @@ public class CloudMove : MonoBehaviour {
     Rigidbody2D rb;
     public Transform cam;
     public Vector3 cameraRelative;
-    public int moveSpeed = 5;
+    public int moveSpeed = 0;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        moveSpeed = Random.Range(100, 200);
     }
 
     void Update()
