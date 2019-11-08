@@ -1,22 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class levelStartText : MonoBehaviour {
-    public GUIText WhateverTextThingy;  //Add reference to UI Text here via the inspector
-    private float timeToAppear = 2f;
-    private float timeWhenDisappear;
+    public float time = 5; //Seconds to read the text
 
-    //Call to enable the text, which also sets the timer
-    public void EnableText() {
-        WhateverTextThingy.enabled = true;
-        timeWhenDisappear = Time.time + timeToAppear;
-    }
-
-    //We check every frame if the timer has expired and the text should disappear
-    void Update() {
-        if (WhateverTextThingy.enabled && (Time.time >= timeWhenDisappear)) {
-            WhateverTextThingy.enabled = false;
-        }
+    void Start()
+    {
+        Destroy(gameObject, time);
     }
 }
