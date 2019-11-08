@@ -96,6 +96,7 @@ public class Player : MonoBehaviour {
             Destroy(player);
         }
         if (collision.gameObject.tag == "bullet") {
+            backgroundFollow.playerHasDied();
             Destroy(player);
         }
     }
