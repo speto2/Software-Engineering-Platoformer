@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class thebullet : MonoBehaviour {
-    public GameObject theBullet;
-    public string lk;
 
-    public int speed = 12;
+    public float speed = 20f;
+    public int damage = 40;
+    public Rigidbody2D rb;
+    public GameObject impactEffect;
 
-    void Start() {
-        lk = Player.lastkey;
+    void Start (){
+        rb.velocity = transform.right * speed;
     }
 
-    void Update() {
-        transform.Translate(-Time.deltaTime, 0, 0);
-        if (lk == "l") {
-            transform.Translate(-Time.deltaTime * speed, 0, 0);
-        }
-        else if (lk == "r") {
-            transform.Translate(Time.deltaTime * speed, 0, 0);
-        }
-        Object.Destroy(gameObject, 10f); //deleted after being around for so long
+    void OnCollisionEnter(){
+
+        //Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

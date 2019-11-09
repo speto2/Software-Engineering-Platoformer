@@ -26,7 +26,10 @@ public class Player : MonoBehaviour {
     
     public static string lastkey;
 
+    private bool facingRight;
+
     void Start() {
+        facingRight = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour {
         float movex = Input.GetAxisRaw("Horizontal");
         float move = movex * pSpeed;
         rb.velocity = new Vector2(move, rb.velocity.y);
+        rightLeft(movex);
 
         if (onGround) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
@@ -46,26 +50,13 @@ public class Player : MonoBehaviour {
         if (player.transform.position.y < -10) {
             player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
-
-        if(Input.GetKeyDown("f")) { //to fire the shot
-            Debug.Log("fire");
-            fire();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
-            lastkey = "r";
-            flip();
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow)) {
-            lastkey = "l";
-            flip();
-        }
     }
 
-    void flip() {
-        if(lastkey == "r") {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }else {
-            GetComponent<SpriteRenderer>().flipX = false;
+    private void rightLeft(float horizontal){
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight) {
+            facingRight = !facingRight;
+
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 

@@ -9,14 +9,12 @@ public class CloudMove : MonoBehaviour {
     public Vector3 cameraRelative;
     public int moveSpeed = 0;
 
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         moveSpeed = Random.Range(100, 200);
     }
 
-    void Update()
-    {
+    void Update() {
         float multiplier = .01f;
         float movex = -1;
         float move = movex * moveSpeed * multiplier;
@@ -24,38 +22,37 @@ public class CloudMove : MonoBehaviour {
         offScreenCheck();
     }
 
-    void offScreenCheck()
-    {
+    void offScreenCheck()  {
         cam = Camera.main.transform;
         Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
-        if (cameraRelative.x > 13)
-        {
-            transform.localPosition = new Vector2(transform.localPosition.x - 25, transform.localPosition.y);
-            // yAxisChange();
+        if (cameraRelative.x > 13){
+            transform.localPosition = new Vector2(transform.localPosition.x - 26, transform.localPosition.y);
+            //yAxisChange();
             moveSpeed = Random.Range(100, 200);
         }
-        else if (cameraRelative.x < -13)
-        {
-            transform.localPosition = new Vector2(transform.localPosition.x + 25, transform.localPosition.y);
-            // yAxisChange();
+        else if (cameraRelative.x < -13) {
+            transform.localPosition = new Vector2(transform.localPosition.x + 26, transform.localPosition.y);
+           // yAxisChange();
             moveSpeed = Random.Range(100, 200);
         }
+        /*if (cameraRelative.y > 5) {
+            transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - 5);
+            moveSpeed = Random.Range(100, 200);
+        }
+        else if (cameraRelative.y < 5) {
+            transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y + 5);
+            moveSpeed = Random.Range(100, 200);
+        }*/
     }
 
-    /*void yAxisChange()
-    {
+    void yAxisChange() {
         cam = Camera.main.transform;
         Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
         bool onScrn = false;
-        while (!onScrn)
-        {
-            float y = Random.Range(cameraRelative.y - 6, 6);
+        while (!onScrn) {
+            float y = Random.Range (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
             transform.localPosition = new Vector2(transform.localPosition.x, y);
-            if (cameraRelative.y < 6 && cameraRelative.y > -6)
-            {
-                onScrn = true;
-            }
         }
-    }*/
+    }
     
 }
