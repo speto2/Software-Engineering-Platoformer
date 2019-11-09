@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 209980320}
   - component: {fileID: 209980321}
   - component: {fileID: 209980322}
+  - component: {fileID: 209980323}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -510,6 +511,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.64}
   m_EdgeRadius: 0
+--- !u!50 &209980323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209980319}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &259887492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1851329785877962, guid: c0c89870f861db84981d283ae6de4266,
@@ -1472,7 +1493,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514657510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.197, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 824962431}

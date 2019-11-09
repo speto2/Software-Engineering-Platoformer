@@ -13,9 +13,9 @@ public class thebullet : MonoBehaviour {
         rb.velocity = transform.right * speed;
     }
 
-    void OnCollisionEnter(){
-
+    void OnTriggerEnter2D(Collider2D other){
         //Instantiate(impactEffect, transform.position, transform.rotation);
+        Debug.Log("i got here");
         Destroy(gameObject);
     }
 }
