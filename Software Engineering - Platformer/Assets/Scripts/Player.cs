@@ -45,6 +45,10 @@ public class Player : MonoBehaviour {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 jumped++;
             }
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.D)) {
+                rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
+                jumped++;
+            }
         }
 
         if (transform.position.y < -10) {
