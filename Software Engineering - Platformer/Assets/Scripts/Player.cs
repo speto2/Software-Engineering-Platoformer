@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
     public int jumped = 0;
 
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     public Transform playerTransform;
     public GameObject player;
@@ -28,12 +28,12 @@ public class Player : MonoBehaviour {
 
     private bool facingRight;
 
-    void Start() {
+    protected void Start() {
         facingRight = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update() {
+    protected void Update() {
         Physics.gravity = new Vector3(0f, -9.81f, 0f);
         float movex = Input.GetAxisRaw("Horizontal");
         float move = movex * pSpeed;
@@ -47,8 +47,8 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (player.transform.position.y < -10) {
-            player.transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
+        if (transform.position.y < -10) {
+            transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
         }
     }
 
@@ -62,10 +62,10 @@ public class Player : MonoBehaviour {
 
     void fire() { //fire a shot
         if(lastkey == "l") {
-            Vector3 spawnPosition = new Vector3(player.transform.position.x-1, player.transform.position.y, player.transform.position.z);
+            Vector3 spawnPosition = new Vector3(transform.position.x-1, transform.position.y, transform.position.z);
             Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
         }else if(lastkey == "r") {
-            Vector3 spawnPosition = new Vector3(player.transform.position.x+1, player.transform.position.y, player.transform.position.z);
+            Vector3 spawnPosition = new Vector3(transform.position.x+1, transform.position.y, transform.position.z);
             Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
         }
     }

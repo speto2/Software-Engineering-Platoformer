@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - wall
   - bullet
+  - planet
   layers:
   - Default
   - TransparentFX
