@@ -29,7 +29,7 @@ public class Gravity : MonoBehaviour {
 		}
 
 		if(distance > 0) {
-			float force = 1 / Mathf.Pow(distance, 2);
+			float force = 0.1f * Mathf.Pow(distance, 2);
 			rb.AddForce(new Vector2(force * Mathf.Cos(angle), force * Mathf.Sin(angle)), ForceMode2D.Impulse);
 		}
 	}
