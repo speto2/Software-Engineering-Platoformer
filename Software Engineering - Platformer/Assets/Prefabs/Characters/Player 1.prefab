@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114795242067737224}
   - component: {fileID: 114837904439742800}
   m_Layer: 0
-  m_Name: PlayerGravity
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   isPistol: 1
   impactEffect: {fileID: 0}
   lineRenderer: {fileID: 120105750213918190}
+  leavingBullet: {fileID: 0}
 --- !u!120 &120105750213918190
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -10,9 +10,13 @@ public class Weapon : MonoBehaviour {
     public bool isPistol;
     public GameObject impactEffect;
     public LineRenderer lineRenderer;
+    public GameObject leavingBullet;
+    private bool facingRight;
+    public bool space;
 
     void Start() {
         isPistol = true;
+        facingRight = true;
     }
     void Update()
     {
@@ -26,9 +30,16 @@ public class Weapon : MonoBehaviour {
         if (Input.GetButtonDown("Fire2")) {
             isPistol = !isPistol;
         }
+        float movex = Input.GetAxisRaw("Horizontal");
+        if (!space) {
+            rightLeft(movex);
+        }
+        else {
+            spaceRotate();
+        }
     }
 
-    void Shoot(){
+    void Shoot() {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
@@ -37,11 +48,11 @@ public class Weapon : MonoBehaviour {
 
         if (hitInfo)
         {
-            //Instantiate(impactEffect, hitInfo.point, Quaternion.identity);
-
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitInfo.point);
-        }else{
+            Instantiate(leavingBullet, hitInfo.point, leavingBullet.transform.rotation);
+        }
+        else {
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
         }
@@ -49,7 +60,35 @@ public class Weapon : MonoBehaviour {
         lineRenderer.enabled = true;
 
         yield return 0;
+        yield return 0;
+        yield return 0;
 
         lineRenderer.enabled = false;
+    }
+
+    private void rightLeft(float horizontal)
+    {
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
+        {
+            facingRight = !facingRight;
+
+            leavingBullet.transform.Rotate(0f, 180f, 0f);
+        }
+
+    }
+
+    void spaceRotate() {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
+            leavingBullet.transform.rotation = Quaternion.Euler(0, 0, 90f);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
+            leavingBullet.transform.rotation = Quaternion.Euler(0, 0, 270f);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+            leavingBullet.transform.rotation = Quaternion.Euler(0, 0, 180f);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+            leavingBullet.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
