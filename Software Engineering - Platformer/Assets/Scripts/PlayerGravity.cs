@@ -20,21 +20,29 @@ public class PlayerGravity : Player {
 	// Update is called once per frame
 	new void Update () {
 		// input
-		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
-			rb.AddForce(new Vector2(0, jumpSpeed/2), ForceMode2D.Impulse);
-			jumped++;
-		}
-		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
-			rb.AddForce(new Vector2(0, -jumpSpeed/2), ForceMode2D.Impulse);
-			jumped++;
-		}
-		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
-			rb.AddForce(new Vector2(-jumpSpeed/2, 0), ForceMode2D.Impulse);
-			jumped++;
-		}
-		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
-			rb.AddForce(new Vector2(jumpSpeed/2, 0), ForceMode2D.Impulse);
-			jumped++;
+		if(onGround) {
+			float moveX = Input.GetAxisRaw("Horizontal");
+			float moveY = Input.GetAxisRaw("Vertical");
+			rb.velocity = new Vector2(moveX * pSpeed, moveY * pSpeed);
+
+
+		} else {
+			if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
+				rb.AddForce(new Vector2(0, jumpSpeed/2), ForceMode2D.Impulse);
+				jumped++;
+			}
+			if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
+				rb.AddForce(new Vector2(0, -jumpSpeed/2), ForceMode2D.Impulse);
+				jumped++;
+			}
+			if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+				rb.AddForce(new Vector2(-jumpSpeed/2, 0), ForceMode2D.Impulse);
+				jumped++;
+			}
+			if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+				rb.AddForce(new Vector2(jumpSpeed/2, 0), ForceMode2D.Impulse);
+				jumped++;
+			}
 		}
 
 		if(rb.velocity.magnitude > 10)
