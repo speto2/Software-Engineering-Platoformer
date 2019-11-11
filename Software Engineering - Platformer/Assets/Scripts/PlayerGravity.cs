@@ -65,6 +65,8 @@ public class PlayerGravity : Player {
 		if(!onGround && distance > 0) {
 			float force = 0.01f * Mathf.Pow(distance, 2);
 			rb.AddForce(Vector2.Scale(new Vector2(force, force), normal), ForceMode2D.Impulse);
+		} else if(onGround) {
+			rb.AddForce(-rb.velocity); // friction
 		}
 
 		distance = int.MaxValue;
