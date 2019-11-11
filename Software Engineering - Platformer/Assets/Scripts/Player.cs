@@ -27,9 +27,11 @@ public class Player : MonoBehaviour {
     public static string lastkey;
 
     private bool facingRight;
+    protected int facing; // 0 - right, 1 - up, 2 - left, 3 - down
 
     protected void Start() {
         facingRight = true;
+        facing = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 

@@ -23,24 +23,37 @@ public class PlayerGravity : Player {
 		if(onGround) {
 			float moveX = Input.GetAxisRaw("Horizontal");
 			float moveY = Input.GetAxisRaw("Vertical");
-			rb.velocity = new Vector2(rb.velocity.x + moveX * pSpeed * 0.01f, rb.velocity.y + moveY * pSpeed * 0.01f);
+			if(moveX != 0) {
+				transform.rotation = Quaternion.Euler(0, 0, moveX > 0 ? 0 : 180f);
+			} else if(moveY != 0) {
+				transform.rotation = Quaternion.Euler(0, 0, moveY > 0 ? 90f : 270f);
+			}
+			rb.velocity = new Vector2(rb.velocity.x + moveX*pSpeed*0.01f, rb.velocity.y + moveY*pSpeed*0.01f);
 
 		} else {
 			if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
 				rb.AddForce(new Vector2(0, jumpSpeed/2), ForceMode2D.Impulse);
+				facing = 1;
 				jumped++;
+				transform.rotation = Quaternion.Euler(0,0,90f);
 			}
 			if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
 				rb.AddForce(new Vector2(0, -jumpSpeed/2), ForceMode2D.Impulse);
+				facing = 3;
 				jumped++;
+				transform.rotation = Quaternion.Euler(0,0,270f);
 			}
 			if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
 				rb.AddForce(new Vector2(-jumpSpeed/2, 0), ForceMode2D.Impulse);
+				facing = 2;
 				jumped++;
+				transform.rotation = Quaternion.Euler(0,0,180f);
 			}
 			if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
 				rb.AddForce(new Vector2(jumpSpeed/2, 0), ForceMode2D.Impulse);
+				facing = 0;
 				jumped++;
+				transform.rotation = Quaternion.Euler(0,0,0);
 			}
 		}
 

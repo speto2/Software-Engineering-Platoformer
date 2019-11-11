@@ -13,6 +13,11 @@ public class thebullet : MonoBehaviour {
         rb.velocity = transform.right * speed;
     }
 
+    void Update() {
+        if(Mathf.Abs(transform.position.x) > 100 || Mathf.Abs(transform.position.y) > 100)
+            Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D other){
         //Instantiate(impactEffect, transform.position, transform.rotation);
         Debug.Log("i got here");
