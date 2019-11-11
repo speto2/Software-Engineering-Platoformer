@@ -87,6 +87,9 @@ public class Player : MonoBehaviour {
             lvl++;
             nextLevel(false); //method that loads next level
         }
+        if(collision.gameObject.tag == "planet") {
+            onGround = true;
+        }
     }
     
     void nextLevel(bool canpass) {
@@ -117,10 +120,10 @@ public class Player : MonoBehaviour {
     }
 
     private void CheckIfGrounded() {
-        RaycastHit2D[] hits;
+        Collider2D[] hits;
         
         Vector2 positionToCheck = transform.position;
-        hits = Physics2D.RaycastAll(positionToCheck, new Vector2(0, -1), 0.01f);
+        hits = Physics2D.OverlapCircleAll(positionToCheck, 0.05f);
         
         if (hits.Length > 0) {
             onGround = true;

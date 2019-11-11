@@ -6,6 +6,7 @@ public class PlayerGravity : Player {
 
 	GameObject[] planets;
 	float distance;
+	Collider2D collider;
 
 	// Use this for initialization
 	new void Start () {
@@ -13,11 +14,35 @@ public class PlayerGravity : Player {
 
 		planets = GameObject.FindGameObjectsWithTag("planet");
 		distance = int.MaxValue;
+		collider = GetComponent<Collider2D>();
 	}
 	
 	// Update is called once per frame
 	new void Update () {
-		base.Update();
+		// input
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
+			rb.AddForce(new Vector2(0, jumpSpeed/2), ForceMode2D.Impulse);
+			jumped++;
+		}
+		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
+			rb.AddForce(new Vector2(0, -jumpSpeed/2), ForceMode2D.Impulse);
+			jumped++;
+		}
+		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+			rb.AddForce(new Vector2(-jumpSpeed/2, 0), ForceMode2D.Impulse);
+			jumped++;
+		}
+		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+			rb.AddForce(new Vector2(jumpSpeed/2, 0), ForceMode2D.Impulse);
+			jumped++;
+		}
+
+		if(rb.velocity.magnitude > 10)
+			rb.velocity = Vector2.ClampMagnitude(rb.velocity, 10);
+
+        if (transform.position.y < -10) {
+            transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
+        }
 
 		Physics.gravity = new Vector3(0f, 0f, 0f);
 
@@ -25,18 +50,20 @@ public class PlayerGravity : Player {
 		Vector2 normal = new Vector2();
 
 		foreach(GameObject planet in planets) {
-			tempDistance = Vector2.Distance(transform.position, planet.transform.position);
+
+			Collider2D planetCollider = planet.GetComponent<Collider2D>();
+
+			tempDistance = Mathf.Abs(planetCollider.Distance(collider).distance);
 			if(tempDistance < distance) {
 				distance = tempDistance;
-				angle = Mathf.Deg2Rad * Vector2.Angle(transform.position, planet.transform.position);
-				normal = (planet.transform.position - transform.position).normalized;
+				normal = planetCollider.Distance(collider).normal;
 			}
 		}
 
 		print(angle + ", " + distance);
 
 		if(!onGround && distance > 0) {
-			float force = 1f / Mathf.Pow(distance, 2);
+			float force = 0.1f * Mathf.Pow(distance, 2);
 			rb.AddForce(Vector2.Scale(new Vector2(force, force), normal), ForceMode2D.Impulse);
 		}
 
