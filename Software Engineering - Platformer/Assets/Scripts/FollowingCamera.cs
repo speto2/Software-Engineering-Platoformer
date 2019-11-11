@@ -9,6 +9,7 @@ public class FollowingCamera : MonoBehaviour {
     public float smoothSpeed = 0.125f;
 
     void Start() {
+        player = GameObject.FindWithTag("Player").transform;
         offset = transform.position - player.transform.position;
     }
     
