@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class backgroundFollow : MonoBehaviour {
     public static GameObject bg;
-    Rigidbody2D rb;
-    GameObject player;
+    Camera camera;
 
     public static float startx, starty;
 
@@ -14,12 +13,11 @@ public class backgroundFollow : MonoBehaviour {
 	void Start () {
         startx = transform.position.x;
         starty = transform.position.y;
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
+        camera = FindObjectOfType<Camera>();
     }
 	
 	void Update () {
-        transform.position = new Vector2(player.transform.position.x, 0);
+        transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, 0);
     }
     
     public static void playerHasDied() {

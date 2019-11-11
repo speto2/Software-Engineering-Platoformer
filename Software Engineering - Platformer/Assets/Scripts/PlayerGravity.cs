@@ -63,7 +63,7 @@ public class PlayerGravity : Player {
 		print(angle + ", " + distance);
 
 		if(!onGround && distance > 0) {
-			float force = 0.1f * Mathf.Pow(distance, 2);
+			float force = 0.01f * Mathf.Pow(distance, 2);
 			rb.AddForce(Vector2.Scale(new Vector2(force, force), normal), ForceMode2D.Impulse);
 		}
 
