@@ -25,7 +25,6 @@ public class PlayerGravity : Player {
 			float moveY = Input.GetAxisRaw("Vertical");
 			rb.velocity = new Vector2(moveX * pSpeed, moveY * pSpeed);
 
-
 		} else {
 			if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) {
 				rb.AddForce(new Vector2(0, jumpSpeed/2), ForceMode2D.Impulse);
@@ -68,13 +67,11 @@ public class PlayerGravity : Player {
 			}
 		}
 
-		print(angle + ", " + distance);
-
 		if(!onGround && distance > 0) {
 			float force = 0.01f * Mathf.Pow(distance, 2);
 			rb.AddForce(Vector2.Scale(new Vector2(force, force), normal), ForceMode2D.Impulse);
 		} else if(onGround) {
-			rb.AddForce(-rb.velocity); // friction
+			//rb.AddForce(-rb.velocity); // friction
 		}
 
 		distance = int.MaxValue;
