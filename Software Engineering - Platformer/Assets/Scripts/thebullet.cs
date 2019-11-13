@@ -14,7 +14,7 @@ public class thebullet : MonoBehaviour {
     }
 
     void Update() {
-        if(Mathf.Abs(transform.position.x) > 100 || Mathf.Abs(transform.position.y) > 100)
+        if(Mathf.Abs(transform.position.x) > 1000 || Mathf.Abs(transform.position.y) > 1000)
             Destroy(gameObject);
     }
 
