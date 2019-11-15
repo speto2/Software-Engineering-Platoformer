@@ -20,7 +20,6 @@ public class thebullet : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other){
         //Instantiate(impactEffect, transform.position, transform.rotation);
-        Debug.Log("i got here");
         Destroy(gameObject);
     }
 }
