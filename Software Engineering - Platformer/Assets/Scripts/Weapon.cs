@@ -19,10 +19,10 @@ public class Weapon : MonoBehaviour {
         facingRight = true;
     }
     void Update() {
-        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown("f")) && isPistol) {
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("f") && isPistol) {
             Shoot();
         }
-        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown("f")) && !isPistol) {
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("f") && !isPistol) {
             StartCoroutine(rayCast());
         }
         if (Input.GetButtonDown("Fire2")) {
