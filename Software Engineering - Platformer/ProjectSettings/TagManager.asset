@@ -10,6 +10,7 @@ TagManager:
   - wall
   - bullet
   - planet
+  - bigbullet
   layers:
   - Default
   - TransparentFX

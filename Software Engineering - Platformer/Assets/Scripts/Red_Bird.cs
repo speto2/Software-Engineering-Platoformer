@@ -7,7 +7,9 @@ public class Red_Bird : MonoBehaviour {
 
     public GameObject redBird;
 
-    public int hp = 1;
+    public int hp = 10;
+
+    public int hits = 0;
 
     void Start() {
 
@@ -27,21 +29,34 @@ public class Red_Bird : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "wall") { //death when touching enemy object
+    void OnTriggerEnter(Collision2D collision, Collider other)
+    {
+        if (other.gameObject.CompareTag("wall"))
+        { //death when touching enemy object
             Debug.Log("Flip");
             Flip();
         }
-        if(collision.gameObject.tag == "enemy") {
+        if (other.gameObject.CompareTag("enemy"))
+        {
             Flip();
         }
-        if (collision.gameObject.tag == "bullet") {
+        if (other.gameObject.CompareTag("bullet"))
+        {
+            hits++;
+        }
+        if (other.gameObject.CompareTag("bigbullet"))
+        {
+            hits += 5;
+        }
+        if (hits >= hp)
+        {
             Destroy(redBird);
         }
     }
-
     void Flip() { //method to flip sprites x around
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = true;
     }
+
+
 }
