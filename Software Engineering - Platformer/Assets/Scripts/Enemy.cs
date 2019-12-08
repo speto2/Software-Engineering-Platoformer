@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Red_Bird : MonoBehaviour {
+public class Enemy : MonoBehaviour {
     public bool facingRight = false;
 
     public GameObject redBird;
 
     public int hp = 10;
-
-    public int hits = 0;
 
     void Start() {
 
@@ -40,23 +38,22 @@ public class Red_Bird : MonoBehaviour {
         {
             Flip();
         }
-        if (other.gameObject.CompareTag("bullet"))
-        {
-            hits++;
-        }
-        if (other.gameObject.CompareTag("bigbullet"))
-        {
-            hits += 5;
-        }
-        if (hits >= hp)
-        {
-            Destroy(redBird);
-        }
     }
     void Flip() { //method to flip sprites x around
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = true;
     }
 
+    public void TakeDamage (int damage) {
+        hp -= damage;
 
+        if (hp <= 0){
+            Die();
+        }
+    }
+
+    void Die(){
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

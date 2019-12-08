@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour {
     public GameObject leavingBullet;
     private bool facingRight;
     public bool space;
+    int damage = 50;
 
     void Start() {
         isPistol = true;
@@ -46,6 +47,11 @@ public class Weapon : MonoBehaviour {
 
         if (hitInfo)
         {
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitInfo.point);
             Instantiate(leavingBullet, hitInfo.point, leavingBullet.transform.rotation);
