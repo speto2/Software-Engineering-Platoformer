@@ -11,6 +11,7 @@ TagManager:
   - bullet
   - planet
   - bigbullet
+  - spike
   layers:
   - Default
   - TransparentFX
