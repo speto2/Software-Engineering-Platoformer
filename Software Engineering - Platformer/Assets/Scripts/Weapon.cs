@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
-
+    float firerate = 3;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public bool isPistol;
@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour {
     private bool facingRight;
     public bool space;
     int damage = 50;
+    private float NextFire;
 
     void Start() {
         isPistol = true;
@@ -23,7 +24,8 @@ public class Weapon : MonoBehaviour {
         if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown("f")) && isPistol) {
             Shoot();
         }
-        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown("f")) && !isPistol) {
+        if (((Input.GetButtonDown("Fire1") || Input.GetKeyDown("f")) && !isPistol) && Time.time > NextFire) {
+            NextFire = Time.time + firerate;
             StartCoroutine(rayCast());
         }
         if (Input.GetButtonDown("Fire2")) {
