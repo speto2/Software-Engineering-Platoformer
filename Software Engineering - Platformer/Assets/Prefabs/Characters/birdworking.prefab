@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1991216868615024}
+  m_RootGameObject: {fileID: 1714231975981568}
   m_IsPrefabAsset: 1
---- !u!1 &1991216868615024
+--- !u!1 &1714231975981568
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4580038714529230}
-  - component: {fileID: 212323566739487746}
-  - component: {fileID: 50892944924921800}
-  - component: {fileID: 61154073811181218}
-  - component: {fileID: 114198158639416870}
+  - component: {fileID: 4121504237365994}
+  - component: {fileID: 212900449563276510}
+  - component: {fileID: 114994853798024976}
+  - component: {fileID: 50301441685277230}
+  - component: {fileID: 60008211100936816}
   m_Layer: 0
-  m_Name: Red-Bird 1
+  m_Name: birdworking
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4580038714529230
+--- !u!4 &4121504237365994
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991216868615024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.78, y: 1.19, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_GameObject: {fileID: 1714231975981568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.789555, y: 3.049246, z: 0.09581216}
+  m_LocalScale: {x: 0.211178, y: 0.19402298, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50892944924921800
+--- !u!50 &50301441685277230
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991216868615024}
+  m_GameObject: {fileID: 1714231975981568}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -63,12 +63,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61154073811181218
-BoxCollider2D:
+--- !u!60 &60008211100936816
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991216868615024}
+  m_GameObject: {fileID: 1714231975981568}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -79,35 +79,73 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13.5, y: 14.52}
-    newSize: {x: 13.5, y: 14.52}
+    oldSize: {x: 4.5, y: 4.84}
+    newSize: {x: 4.5, y: 4.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 13.5, y: 14.52}
-  m_EdgeRadius: 0
---- !u!114 &114198158639416870
+  m_Points:
+    m_Paths:
+    - - {x: 1.04, y: -1.27}
+      - {x: 1.15, y: -1.13}
+      - {x: 1.4499999, y: -0.97999996}
+      - {x: 1.61, y: -0.78999996}
+      - {x: 1.9499999, y: 0.35}
+      - {x: 2.06, y: 0.39}
+      - {x: 2.06, y: 0.74}
+      - {x: 1.9, y: 0.9}
+      - {x: 1.74, y: 0.88}
+      - {x: 1.42, y: 0.56}
+      - {x: 1.14, y: 0.42999998}
+      - {x: 1.12, y: 0.41}
+      - {x: 0.84, y: 0.28}
+      - {x: 0.82, y: 0.26}
+      - {x: 0.82, y: 0.13}
+      - {x: -0.03, y: 0.28}
+      - {x: -0.01, y: 0.39}
+      - {x: 0, y: 0.94}
+      - {x: 0.22999999, y: 2.05}
+      - {x: 0.02, y: 2.3799999}
+      - {x: -0.42, y: 2.3799999}
+      - {x: -0.88, y: 1.8199999}
+      - {x: -1.16, y: 0.90999997}
+      - {x: -1.86, y: 0.88}
+      - {x: -2.03, y: 0.75}
+      - {x: -2.03, y: 0.52}
+      - {x: -1.91, y: 0.35999998}
+      - {x: -1.02, y: 0}
+      - {x: -1.41, y: -0.02}
+      - {x: -1.43, y: -0.04}
+      - {x: -1.73, y: -0.29999998}
+      - {x: -1.77, y: -0.65999997}
+      - {x: -1.4499999, y: -0.96999997}
+      - {x: -0.52, y: -1.29}
+      - {x: -0.38, y: -1.26}
+      - {x: -0.53999996, y: -2.11}
+      - {x: -0.55, y: -2.3}
+      - {x: -0.51, y: -2.31}
+      - {x: 0.85999995, y: -2.31}
+--- !u!114 &114994853798024976
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991216868615024}
+  m_GameObject: {fileID: 1714231975981568}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99d733068d33e1146b9127b59db5c20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 0
-  redBird: {fileID: 1991216868615024}
-  hp: 1
---- !u!212 &212323566739487746
+  redBird: {fileID: 0}
+  hp: 10
+--- !u!212 &212900449563276510
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991216868615024}
+  m_GameObject: {fileID: 1714231975981568}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -137,12 +175,12 @@ SpriteRenderer:
   m_SortingLayerID: -1752542807
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e045f00a9c73924fae9def1c244e5f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b3e4e7f402946e4bb7588bddd4d15a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 13.5, y: 14.52}
+  m_Size: {x: 4.5, y: 4.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
