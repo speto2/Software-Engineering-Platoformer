@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
         }
 
         if (transform.position.y < -10) {
-            transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
+            playerDeath();
         }
     }
 
@@ -79,11 +79,11 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "enemy") { //death when touching enemy object
             Debug.Log("player death");
-            Destroy(player);
+            playerDeath();
         }
         if (collision.gameObject.tag == "bullet") {
             backgroundFollow.playerHasDied();
-            Destroy(player);
+            playerDeath();
         }
         if(collision.gameObject.tag == "endgate") {
             lvl++;
@@ -93,7 +93,11 @@ public class Player : MonoBehaviour {
             onGround = true;
         }
     }
-    
+
+    private void playerDeath() {
+        transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
+    }
+
     void nextLevel(bool canpass) {
         if(canpass) {
             switch(lvl) {
