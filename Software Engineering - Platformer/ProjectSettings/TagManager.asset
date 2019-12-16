@@ -11,6 +11,7 @@ TagManager:
   - bullet
   - planet
   - bigbullet
+  - stationaryEnemy
   - spike
   layers:
   - Default

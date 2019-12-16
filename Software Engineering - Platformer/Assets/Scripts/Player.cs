@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     
-    public float pSpeed = 5f;
-    public float jumpSpeed = 5f;
+    public float pSpeed = 20f;
+    public float jumpSpeed = 50f;
 
     public bool alive = true;
     public bool onGround = false;
