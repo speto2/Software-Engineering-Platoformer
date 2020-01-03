@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212432426210583668}
   - component: {fileID: 61982889826456588}
   m_Layer: 8
-  m_Name: CSEgrassPlatformArt1 1
+  m_Name: CSEswampPlatform1
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
