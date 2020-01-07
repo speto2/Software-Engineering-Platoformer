@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     
-    public float pSpeed = 5f;
-    public float jumpSpeed = 5f;
+    public float pSpeed = 20f;
+    public float jumpSpeed = 50f;
 
     public bool alive = true;
     public bool onGround = false;
@@ -77,7 +77,9 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "enemy") { //death when touching enemy object
+        if (collision.gameObject.tag == "enemy" ||
+            collision.gameObject.tag == "stationaryEnemy"
+            ) { //death when touching enemy object
             Debug.Log("player death");
             playerDeath();
         }

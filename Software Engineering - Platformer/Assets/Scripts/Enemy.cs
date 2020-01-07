@@ -14,11 +14,6 @@ public class Enemy : MonoBehaviour {
     }
 
     void Update() {
-        if (hp >= 0) { //death
-            if (hp <= 0) { //death
-                Destroy(redBird);
-            }
-        }
         transform.Translate(0, 0, Time.deltaTime);
         if (facingRight) {
             transform.Translate(Time.deltaTime, 0, 0);

@@ -25,13 +25,13 @@ public class CloudMove : MonoBehaviour {
     void offScreenCheck()  {
         cam = Camera.main.transform;
         Vector3 cameraRelative = cam.InverseTransformPoint(transform.position);
-        if (cameraRelative.x > 14){
-            transform.localPosition = new Vector2(transform.localPosition.x - 27, transform.localPosition.y);
+        if (cameraRelative.x > 25){
+            transform.localPosition = new Vector2(transform.localPosition.x - 49, transform.localPosition.y);
             //yAxisChange();
             moveSpeed = Random.Range(100, 200);
         }
-        else if (cameraRelative.x < -14) {
-            transform.localPosition = new Vector2(transform.localPosition.x + 27, transform.localPosition.y);
+        else if (cameraRelative.x < -25) {
+            transform.localPosition = new Vector2(transform.localPosition.x + 49, transform.localPosition.y);
            // yAxisChange();
             moveSpeed = Random.Range(100, 200);
         }
