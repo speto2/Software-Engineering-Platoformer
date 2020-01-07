@@ -94,6 +94,10 @@ public class Player : MonoBehaviour {
         if(collision.gameObject.tag == "planet") {
             onGround = true;
         }
+        if(collision.gameObject.tag == "endlvl") {
+            Debug.Log("next level");
+            SceneManager.LoadScene("Level-02");
+        }
     }
 
     private void playerDeath() {
