@@ -3174,6 +3174,16 @@ Prefab:
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 212733195899267816, guid: f8c32a55e8bdaff4f87fe2f484660f70,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -679393245
+      objectReference: {fileID: 0}
+    - target: {fileID: 212733195899267816, guid: f8c32a55e8bdaff4f87fe2f484660f70,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c32a55e8bdaff4f87fe2f484660f70, type: 2}
   m_IsPrefabAsset: 0
