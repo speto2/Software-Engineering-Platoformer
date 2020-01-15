@@ -1596,6 +1596,10 @@ Prefab:
       propertyPath: m_Mass
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 1822390155361874, guid: 6d070a16e137bcc41903a2548dd8858c, type: 2}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4175280439308444, guid: 6d070a16e137bcc41903a2548dd8858c, type: 2}
       propertyPath: m_RootOrder
       value: 2

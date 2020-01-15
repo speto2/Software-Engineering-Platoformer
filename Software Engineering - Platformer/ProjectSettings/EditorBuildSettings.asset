@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level-01.unity
     guid: cc015d3a07e6bc940b16c61e3243569e
+  - enabled: 1
+    path: Assets/Levels/GravityTest.unity
+    guid: 4606f070174d0be4f8ce5de0f731ddae
   m_configObjects: {}
