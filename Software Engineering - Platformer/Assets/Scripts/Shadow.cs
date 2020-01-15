@@ -12,7 +12,7 @@ public class Shadow : MonoBehaviour {
     private Transform transShadow;
 
     public Material shadowMaterial;
-    public Color shadowColor;
+    public Color shadowColor = new Color(0.2588235f, 0.2588235f, 0.2588235f, 1f);
 
 	void Start () {
 
