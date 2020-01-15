@@ -2197,8 +2197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.2, y: 91}
-  m_SizeDelta: {x: 221.69, y: 41.57}
+  m_AnchoredPosition: {x: -1.58, y: 91}
+  m_SizeDelta: {x: 295.25, y: 41.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &644145528
 Rigidbody2D:
@@ -2264,7 +2264,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Level 2 \n"
+  m_Text: 'Level 2 - Arabia
+
+'
 --- !u!222 &644145531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4412,7 +4414,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.925064
+      value: 8.42
       objectReference: {fileID: 0}
     - target: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5723,11 +5725,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 44.75115
+      value: 45.14
       objectReference: {fileID: 0}
     - target: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.164598
+      value: 10.47
       objectReference: {fileID: 0}
     - target: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11, type: 2}
       propertyPath: m_LocalPosition.z
