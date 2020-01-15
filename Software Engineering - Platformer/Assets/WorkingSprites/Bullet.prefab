@@ -194,7 +194,8 @@ MonoBehaviour:
   speed: 40
   damage: 2
   rb: {fileID: 50686269324680208}
-  impactEffect: {fileID: 0}
+  stop: 0
+  bullet: {fileID: 1426447658114562}
 --- !u!212 &212551236464329568
 SpriteRenderer:
   m_ObjectHideFlags: 1

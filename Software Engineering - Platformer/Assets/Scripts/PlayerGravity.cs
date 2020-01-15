@@ -16,11 +16,20 @@ public class PlayerGravity : Player {
 		distance = int.MaxValue;
 		collider = GetComponent<Collider2D>();
 	}
-	
-	// Update is called once per frame
-	new void Update () {
-		// input
-		if(onGround) {
+
+    // Update is called once per frame
+    private void playerDeath()
+    {
+        transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
+    }
+
+    new void Update () {
+        if (Input.GetKeyDown("r"))
+        {
+            playerDeath();
+        }
+        // input
+        if (onGround) {
 			float moveX = Input.GetAxisRaw("Horizontal");
 			float moveY = Input.GetAxisRaw("Vertical");
 			if(moveX != 0) {

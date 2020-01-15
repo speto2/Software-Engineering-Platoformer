@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (transform.position.y < -10) {
+        if (transform.position.y < -20 || Input.GetKeyDown("r")) {
             playerDeath();
         }
     }
