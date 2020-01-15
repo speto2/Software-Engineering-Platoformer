@@ -15,6 +15,8 @@ public class PlayerGravity : Player {
 		planets = GameObject.FindGameObjectsWithTag("planet");
 		distance = int.MaxValue;
 		collider = GetComponent<Collider2D>();
+		startPos = new GameObject();
+		startPos.transform.position = new Vector3(0, 0, 0);
 	}
 
     // Update is called once per frame

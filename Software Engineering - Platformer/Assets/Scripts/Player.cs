@@ -76,7 +76,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    protected void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "enemy" ||
             collision.gameObject.tag == "stationaryEnemy"
             ) { //death when touching enemy object
@@ -94,17 +94,13 @@ public class Player : MonoBehaviour {
         if(collision.gameObject.tag == "planet") {
             onGround = true;
         }
-        if(collision.gameObject.tag == "endlvl") {
-            Debug.Log("next level");
-            SceneManager.LoadScene("Level-02");
-        }
     }
 
-    private void playerDeath() {
+    protected void playerDeath() {
         transform.localPosition = new Vector2(startPos.transform.position.x, startPos.transform.position.y);
     }
 
-    void nextLevel(bool canpass) {
+    protected void nextLevel(bool canpass) {
         if(canpass) {
             switch(lvl) {
                 case 2:
