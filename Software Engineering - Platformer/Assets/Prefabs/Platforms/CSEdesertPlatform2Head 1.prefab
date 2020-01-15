@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61778924374266582}
   - component: {fileID: 114660371557894502}
   m_Layer: 8
-  m_Name: CSEdesertPlatform2HeadEnd
+  m_Name: CSEdesertPlatform2Head 1
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
