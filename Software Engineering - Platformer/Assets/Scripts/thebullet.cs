@@ -9,6 +9,7 @@ public class thebullet : MonoBehaviour {
     public Rigidbody2D rb;
     //public GameObject impactEffect;
     public float stop = 0f;
+    public GameObject bullet;
 
     void Start (){
         rb.velocity = transform.right * speed;
@@ -26,6 +27,6 @@ public class thebullet : MonoBehaviour {
         if (enemy != null){
             enemy.TakeDamage(damage);
         }
-        Destroy(gameObject);
+        Destroy(bullet);
     }
 }

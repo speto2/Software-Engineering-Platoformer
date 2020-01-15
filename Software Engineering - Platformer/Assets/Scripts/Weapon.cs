@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour {
     public Transform firePoint;
     public GameObject bulletPrefab;
     public bool isPistol;
-    public GameObject impactEffect;
+    //public GameObject impactEffect;
     public LineRenderer lineRenderer;
     private bool facingRight;
     public bool space;
@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour {
             }
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitInfo.point);
-            Instantiate(impactEffect);
+            //Instantiate(impactEffect);
         }
         else {
             lineRenderer.SetPosition(0, firePoint.position);
