@@ -1194,7 +1194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.2, y: 175.4}
+  m_AnchoredPosition: {x: 35.2, y: 91}
   m_SizeDelta: {x: 221.69, y: 41.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &644145528
@@ -1261,9 +1261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level - 02
-
-'
+  m_Text: "Level 2 \n"
 --- !u!222 &644145531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2049,6 +2047,16 @@ Prefab:
     - target: {fileID: 4353774499956538, guid: ca0af4c35f65dbd49a27f751d1070663, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 212217245455003170, guid: ca0af4c35f65dbd49a27f751d1070663,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -679393245
+      objectReference: {fileID: 0}
+    - target: {fileID: 212217245455003170, guid: ca0af4c35f65dbd49a27f751d1070663,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca0af4c35f65dbd49a27f751d1070663, type: 2}
@@ -3388,8 +3396,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -679393245
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 15c6b39cf9ab8754a9ef61f75504f302, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
