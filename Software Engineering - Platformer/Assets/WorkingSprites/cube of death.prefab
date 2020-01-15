@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114187886320920368}
   m_Layer: 0
   m_Name: cube of death
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
