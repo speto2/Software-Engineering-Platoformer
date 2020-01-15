@@ -37,10 +37,8 @@ GameObject:
   - component: {fileID: 212076617454831502}
   - component: {fileID: 61137007768707892}
   - component: {fileID: 50742642922035440}
-  - component: {fileID: 114787258640493590}
   - component: {fileID: 114339800243324330}
-  - component: {fileID: 114696149663200704}
-  - component: {fileID: 95850763265731636}
+  - component: {fileID: 114187886320920368}
   m_Layer: 0
   m_Name: cube of death
   m_TagString: Player
@@ -124,7 +122,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!61 &61137007768707892
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -150,24 +148,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!95 &95850763265731636
-Animator:
-  serializedVersion: 3
+--- !u!114 &114187886320920368
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691841967595996}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced27fc282810ff4b9fffe18d32ae591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114339800243324330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,47 +173,6 @@ MonoBehaviour:
   offset: {x: -0.07, y: -0.07}
   shadowMaterial: {fileID: 2100000, guid: 89537c87c968835458ba64ef37206bb3, type: 2}
   shadowColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0}
---- !u!114 &114696149663200704
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691841967595996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3284702844435e142871880ee5e2f3b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 4742324189148746}
-  bulletPrefab: {fileID: 1426447658114562, guid: 032e337129a2a694bbd4e417c8e118de,
-    type: 2}
-  isPistol: 0
-  lineRenderer: {fileID: 120812861626907860}
-  space: 0
---- !u!114 &114787258640493590
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691841967595996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e37eab2abc65914480ecfbce58dd8d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pSpeed: 5
-  jumpSpeed: 6.5
-  alive: 1
-  onGround: 0
-  jumped: 0
-  playerTransform: {fileID: 4588500773608276}
-  player: {fileID: 1691841967595996}
-  startPos: {fileID: 1564471900830888, guid: c40ed1b15b14ef949a33771cf8f06cf3, type: 2}
-  bulletPrefab: {fileID: 1230828559253616, guid: 7e41ed6beb1b02b4d97d5068119377c0,
-    type: 2}
-  loadLvl: 
-  lvl: 1
-  fireCoolDown: 1
 --- !u!120 &120812861626907860
 LineRenderer:
   m_ObjectHideFlags: 1
