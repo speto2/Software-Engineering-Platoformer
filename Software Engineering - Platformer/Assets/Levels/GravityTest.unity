@@ -345,7 +345,7 @@ MonoBehaviour:
   jumped: 0
   playerTransform: {fileID: 0}
   player: {fileID: 0}
-  startPos: {fileID: 1899704860}
+  startPos: {fileID: 0}
   bulletPrefab: {fileID: 0}
   loadLvl: 
   lvl: 1
