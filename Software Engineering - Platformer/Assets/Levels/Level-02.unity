@@ -681,6 +681,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4514732912895950, guid: 0fcffaf7ca6f0cd4e999ed29035d0f11,
     type: 2}
   m_PrefabInternal: {fileID: 570693821}
+--- !u!1 &856616832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1062172453502470, guid: 6a91103ea5e402a469f0eb3976b3363f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2123064089}
+--- !u!114 &856616833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856616832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d733068d33e1146b9127b59db5c20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 0
+  redBird: {fileID: 0}
+  hp: 20
 --- !u!1001 &900393048
 Prefab:
   m_ObjectHideFlags: 0
@@ -1991,7 +2010,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114964324312702210, guid: 6a91103ea5e402a469f0eb3976b3363f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6a91103ea5e402a469f0eb3976b3363f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!20 &2144500692 stripped
