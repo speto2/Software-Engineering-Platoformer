@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114696149663200704}
   - component: {fileID: 95850763265731636}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: cube of death
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
